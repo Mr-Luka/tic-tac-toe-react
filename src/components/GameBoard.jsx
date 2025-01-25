@@ -5,6 +5,7 @@ const initialGameBoard = [
     [null, null, null],
     [null, null, null],
 ]
+// making the board
 
 export default function GameBoard (){
     const [ gameBoard, setGameBoard ] = useState(initialGameBoard);
