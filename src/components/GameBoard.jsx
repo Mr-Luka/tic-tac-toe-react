@@ -14,7 +14,7 @@ export default function GameBoard (){
         setGameBoard((prevGameBoard)=> { // function form of updating the state by passing a function to the state updating function by passing a function to the state updating function, we will put our prevGameBoard as an argument here passed in automatically by React
             const updatedBoard = [...prevGameBoard.map(innerArray => [...innerArray])]; // updating the state in an immutable way
 //  technically a new array object in memory that contains the old array elements as child elements
-            updatedBoard[rowIndex][colIndex] = 'X';
+            updatedBoard[rowIndex][colIndex] = 'X'; // for now we are putting X, but it will change, depending which player's turn it is X or O
             return updatedBoard;
         } )
     }
