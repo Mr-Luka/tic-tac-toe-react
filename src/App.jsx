@@ -18,7 +18,7 @@ function App() {
       }
 
       const updatedTurns = [{ square: {row: rowIndex, col: colIndex}, player: currentPlayer} ,...prevTurns];
-
+// we are getting a square that ras a row and row index and a column with column index, and besure that square we have a player
       return updatedTurns;
     });
   }
