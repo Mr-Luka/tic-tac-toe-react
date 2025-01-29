@@ -23,7 +23,7 @@ function App() {
   function handleSelectSquare(rowIndex, colIndex) {
     // setActivePlayer((curActivePlayer) => (curActivePlayer === 'X' ? 'O' : 'X'));
     setGameTurns ((prevTurns) => {
-      const currentPlayer = deriveActivePlayer(prevTurns);
+      const currentPlayer = deriveActivePlayer(prevTurns)
 
       const updatedTurns = [{ square: {row: rowIndex, col: colIndex}, player: currentPlayer} ,...prevTurns];
 // we are getting a square that ras a row and row index and a column with column index, and besure that square we have a player
