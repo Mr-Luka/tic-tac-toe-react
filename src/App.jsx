@@ -36,11 +36,17 @@ function App() {
 
         gameBoard[row][col] = player;
     }
+    
+    let winner = null;
 
     for (const combination of WINNING_COMBINATIONS){
-      const firstSquareSymbol
-      const secondtSquareSymbol
-      const thirdSquareSymbol
+      const firstSquareSymbol = gameBoard[combination[0].row][combination[0].column];
+      const secondtSquareSymbol = gameBoard[combination[1].row][combination[1].column];
+      const thirdSquareSymbol = gameBoard[combination[2].row][combination[2].column];
+
+      if(firstSquareSymbol && firstSquareSymbol === secondtSquareSymbol && firstSquareSymbol === thirdSquareSymbol){
+        winner = firstSquareSymbol;
+      }
     }
 
   function handleSelectSquare(rowIndex, colIndex) {
@@ -53,7 +59,6 @@ function App() {
       return updatedTurns;
     });
   }
-
 
   return (
     <main>
@@ -68,6 +73,7 @@ function App() {
           symbol="O" 
           isActive={activePlayer === 'O'}/>
       </ol>
+      {winner && <p>You won, {winner}!</p>}
         <GameBoard 
           onSelectSquare={handleSelectSquare} 
           board={gameBoard}/>
