@@ -16,6 +16,11 @@ const INITIAL_BOARD_GAME = [
     [null, null, null],
 ]
 
+
+// Function that will loop through the combinations of winning combinations, and for creates the frist, second and third square symbol,
+// in an constant that equals to the gameBoard's combination row and column, and then we are setting the if statement, 
+// to check if the first, second and third square symbol are the same, and if they are
+// then we are returning true, otherwise we are returning false
 function deriveWinner(gameBoard, players){
   let winner = null;
 
@@ -31,6 +36,8 @@ function deriveWinner(gameBoard, players){
     return winner;
 }
 
+// function that will check if the length of gameTurns is 0 and if its the "first" turn which it will always be
+// and then we are returning the first player, otherwise we are returning the second player
 function deriveActivePlayer(gameTurns){
   let currentPlayer = 'X';
 
