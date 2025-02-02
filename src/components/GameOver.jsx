@@ -6,3 +6,6 @@ export default function GameOver({winner, onRestart}){
         <p><button onClick={onRestart}>Rematch!</button></p>
     </div>
 }
+
+// Game over component that will pop out when the game has ended, weather there is a winner
+// or a draw. The component will display the winner and a button to restart the game.
