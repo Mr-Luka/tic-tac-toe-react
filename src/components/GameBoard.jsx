@@ -26,3 +26,8 @@ export default function GameBoard ({ onSelectSquare, board }){
 // that calls the onSelectSquare function with the row and column index
 // the button is disabled if the player symbol is not null
 // we are also displaying the player symbol inside the button
+// Board that we are maping, we are mapping every nested array, and there are 3, and we are sayinh
+// that for every array mapped (3) we are creating a list item of rows, and each row will have an ordered list
+// and then we are mapping through each row 
+// and we are saying for every row mapped we are creating a list item of columns
+

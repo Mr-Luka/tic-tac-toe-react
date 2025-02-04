@@ -49,7 +49,8 @@ function deriveActivePlayer(gameTurns){
 }
 
 function deriveGameBoard(gameTurns){
-  let gameBoard = [...INITIAL_BOARD_GAME.map(array=> [...array])];
+  let gameBoard = [...INITIAL_BOARD_GAME.map(array=> [...array])]; // because we have nested arrays, we are mapping throught
+// initialBoardGame and everything from inside that array.
 
     for (const turn of gameTurns) {
         const {square, player} = turn;
