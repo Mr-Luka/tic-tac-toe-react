@@ -30,3 +30,11 @@ export default function Player ({initialName, symbol, isActive, onChangeName}){
         </li>
     )
 }
+/* Player component that checks if the current player is active, if yes, the class will activate to mark the active player
+* The player name is editable, when the edit button is clicked, the name can be changed,
+* when the save button is clicked, the new name will be sent to the parent component through the
+* onChangeName function and the isEditing state will be set to false to prevent further editing
+* The player symbol is displayed next to the player name
+
+
+*/
