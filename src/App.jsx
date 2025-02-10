@@ -1,33 +1,47 @@
 import {useState} from 'react';
+
 import Header from './components/Header.jsx';
 import Players from './components/Players.jsx';
 import GameBoard from './components/GameBoard.jsx';
 import Log from './components/Log.jsx';
+import {WINNING_COMBINATIONS} from './components/winning-combinations.js';
 
+const initialGameBoard = [
+    [null, null, null],
+    [null, null, null],
+    [null, null, null],
+]
 
-// function deriveActivePlayer(gameTruns){
-//   let activePlayer = 'X';
-//   if( gameTruns.length === 'X') {
-//     return activePlayer = 'O';
-//   }
-// }
+function deriveActivePlayer(gameTurns){
+  let currentPlayer = 'X';
+
+  if(gameTurns.length > 0 && gameTurns[0].player === 'X') {
+    currentPlayer = 'O'
+  }
+
+  return currentPlayer;
+}
 
 
 function App() {
   const [gameTurns, setGameTurns] = useState([]);
-  const [activePlayer, setActivePlayer] = useState('X')
-  // const [ gameBoard, setGameBoard ] = useState(initialGameBoard);
+  
+  const activePlayer = deriveActivePlayer(gameTurns);
+
+  let gameBoard = [...initialGameBoard.map(innerArray => [...innerArray])];
+
+    for (let turn of gameTurns ){
+        const {square, player} = turn;
+        const {row, col} = square;
+
+        gameBoard[row][col] = player;
+    }
 
   function handleSelectSquare(rowIndex, colIndex){
-    setActivePlayer (curActivePlayer => curActivePlayer === "X" ? "O" : 'X');
     setGameTurns(prevTurns => {
-      let currentPlater = 'X';
-
-      if(prevTurns.length > 0 && prevTurns[0] === 'X'){
-        currentPlater = 'O';
-      }
-      const updatedTurns = [ {square: {row: rowIndex, col: colIndex}, player: currentPlater}, ...[prevTurns]];
-
+      const activePlayer = deriveActivePlayer(prevTurns);
+      
+      const updatedTurns = [{ square: {row: rowIndex, col: colIndex}, player: activePlayer} ,...prevTurns];
       return updatedTurns;
     } )
   }
@@ -51,7 +65,7 @@ function App() {
         </ol>
         <GameBoard 
           onSelectSquare={handleSelectSquare}
-          turns={gameTurns}
+          board={gameBoard}
         />
       </div>
       <Log
