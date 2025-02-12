@@ -24,27 +24,7 @@ function deriveActivePlayer(gameTurns){
 
 
 function App() {
-  const [gameTurns, setGameTurns] = useState([]);
-  
-  const activePlayer = deriveActivePlayer(gameTurns);
 
-  let gameBoard = [...initialGameBoard.map(innerArray => [...innerArray])];
-
-    for (let turn of gameTurns ){
-        const {square, player} = turn;
-        const {row, col} = square;
-
-        gameBoard[row][col] = player;
-    }
-
-  function handleSelectSquare(rowIndex, colIndex){
-    setGameTurns(prevTurns => {
-      const activePlayer = deriveActivePlayer(prevTurns);
-      
-      const updatedTurns = [{ square: {row: rowIndex, col: colIndex}, player: activePlayer} ,...prevTurns];
-      return updatedTurns;
-    } )
-  }
 
   return (
     <main>
@@ -53,14 +33,10 @@ function App() {
         <ol id="players" className="highlight-player"> 
           <Players
             initialPlayerName='Player 1' 
-            symbol="X"
-            isActive={activePlayer === 'X'}
 
           />
           <Players
             initialPlayerName='Player 2'
-            symbol="O"
-            isActive={activePlayer === 'O'}
             />
         </ol>
         <GameBoard 
@@ -68,8 +44,6 @@ function App() {
           board={gameBoard}
         />
       </div>
-      <Log
-        turns={gameTurns} />
     </main>
   )
 }
