@@ -3,24 +3,7 @@ import {useState} from 'react';
 import Header from './components/Header.jsx';
 import Players from './components/Players.jsx';
 import GameBoard from './components/GameBoard.jsx';
-import Log from './components/Log.jsx';
-import {WINNING_COMBINATIONS} from './components/winning-combinations.js';
 
-const initialGameBoard = [
-    [null, null, null],
-    [null, null, null],
-    [null, null, null],
-]
-
-function deriveActivePlayer(gameTurns){
-  let currentPlayer = 'X';
-
-  if(gameTurns.length > 0 && gameTurns[0].player === 'X') {
-    currentPlayer = 'O'
-  }
-
-  return currentPlayer;
-}
 
 
 function App() {
@@ -30,7 +13,7 @@ function App() {
     <main>
       <Header />
       <div id="game-container">
-        <ol id="players" className="highlight-player"> 
+        <ol id="players"> 
           <Players
             initialPlayerName='Player 1' 
 
@@ -41,7 +24,6 @@ function App() {
         </ol>
         <GameBoard 
           onSelectSquare={handleSelectSquare}
-          board={gameBoard}
         />
       </div>
     </main>
