@@ -20,8 +20,8 @@ html {
 body {
   background: radial-gradient(
       circle at top,
-      rgba(241, 210, 70, 0.98),
-      rgba(250, 176, 103, 0.87)
+      rgba(212, 241, 70, 0.98),
+      rgba(250, 157, 103, 0.87)
     ),
     url('bg-pattern-dark.png');
   background-repeat: repeat;
@@ -75,13 +75,13 @@ h1 {
 }
 
 #players.highlight-player li.active {
-  border-color: #f6e35a;
+  border-color: #6ff65a;
   animation: pulse 2s infinite ease-in-out;
 }
 
 #players.highlight-player li.active .player-name,
 #players.highlight-player li.active .player-symbol {
-  color: #f6e35a;
+  color: #9cd793;
 }
 
 #players button {
@@ -189,6 +189,8 @@ ol {
   font-family: 'Caprasimo', cursive;
   padding: 1rem;
 }
+
+
 
 #game-over {
   position: absolute;
