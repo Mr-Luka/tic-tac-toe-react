@@ -20,8 +20,8 @@ html {
 body {
   background: radial-gradient(
       circle at top,
-      rgba(212, 241, 70, 0.98),
-      rgba(250, 157, 103, 0.87)
+      rgba(236, 226, 197, 0.98),
+      rgba(6, 61, 133, 0.87)
     ),
     url('bg-pattern-dark.png');
   background-repeat: repeat;
@@ -182,8 +182,8 @@ ol {
   width: 8rem;
   height: 8rem;
   border: none;
-  background: #aca788;
-  color: #3f3b00;
+  background: #888dac;
+  color: #eae9da;
   font-size: 5rem;
   cursor: pointer;
   font-family: 'Caprasimo', cursive;
