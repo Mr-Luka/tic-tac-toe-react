@@ -20,9 +20,12 @@ function App() {
       <div id="game-container">
         <ol id="players" className="highlight-player"> 
           <Player 
+            symbol='X'
+            playerName='Player 1'
           />
           <Player 
-
+            symbol='O'
+            playerName='Player 1'
           />
         </ol>
 

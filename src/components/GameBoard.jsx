@@ -1,3 +1,11 @@
+
+
+const InitialGameBoard = [
+    [null, null, null],
+    [null, null, null],
+    [null, null, null]
+]
+
 export default function GameBoard(){
 
    return (
