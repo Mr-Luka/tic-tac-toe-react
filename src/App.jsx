@@ -8,10 +8,30 @@ import {WINNING_COMBINATIONS} from './components/winning-combinations.js';
 import GameOver from './components/GameOver.jsx';
 
 
-
+const initialGameBoard = [
+    [null, null, null],
+    [null, null, null],
+    [null, null, null]
+]
 
 
 function App() {
+  const [gameTurn, setGameTurns] = useState([]);
+  const [activePlayer, setActivePlayer] = useState('X');
+
+  function handleSquareClick(rowIndex, colIndex){
+    setActivePlayer(curActivePlayer => curActivePlayer === 'X' ? 'O' : 'X')
+    
+    setGameTurns(prevTurn => {
+      let currentPlayer = 'X';
+
+      if(prevTurn.length > 0 && prevTurn[0].player === 'X'){
+        currentPlayer = 'O'
+      }
+      const newTurn = [ {square: {row: rowIndex, col: colIndex}, player: currentPlayer},...prevTurn];
+      return newTurn;
+    })
+    }
 
 
   return (
@@ -22,19 +42,23 @@ function App() {
           <Player 
             symbol='X'
             playerName='Player 1'
+            isActive={activePlayer === 'X'}
           />
           <Player 
             symbol='O'
-            playerName='Player 1'
+            playerName='Player 2'
+            isActive={activePlayer === 'O'}
           />
         </ol>
 
         <GameBoard 
+          turns={gameTurn}
+          onClick={handleSquareClick}
 
         />
       </div>
       <Log 
-
+        turns={gameTurn}
       />
     </main>
   )
