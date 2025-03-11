@@ -1,19 +1,20 @@
-const initialGameBoard = [
-    [null, null, null],
-    [null, null, null],
-    [null, null, null]
-]
 
 
-export default function GameBoard(){
+export default function GameBoard({squareClick, turns, board}){
+    
+
     return (
         <ol id="game-board">
-          {initialGameBoard.map((row, rowIndex)=> 
+          {board.map((row, rowIndex)=> 
           <li key={rowIndex}>
                 <ol>
                     {row.map((symbol, colIndex)=> 
                     <li key={colIndex}>
-                        <button>{symbol}</button>
+                        <button 
+                            onClick={()=> squareClick(rowIndex, colIndex)}
+                            disabled={symbol !== null}
+                        >
+                            {symbol}</button>
                     </li>)}
                 </ol>
             </li>)}
