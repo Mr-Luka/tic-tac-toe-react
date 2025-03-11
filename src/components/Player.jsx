@@ -1,6 +1,6 @@
 import {useState, useRef} from 'react';
 
-export default function Player({name, symbol, isActive}){
+export default function Player({name, symbol, isActive, onChangeName}){
     const playerName = useRef(name)
     const [isEditing, setIsEditing] = useState(false);
 
@@ -9,6 +9,7 @@ export default function Player({name, symbol, isActive}){
 
         if(isEditing){
             playerName.current = playerName.current.value;
+            onChangeName(symbol, playerName.current);
         }
     }
 

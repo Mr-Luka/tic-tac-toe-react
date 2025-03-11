@@ -39,7 +39,7 @@ function derriveActivePlayer(gameTurns){
   return activePlayer;
 }
 
-function derriveWinner (gameBoard){
+function derriveWinner (gameBoard, player){
   let winner;
 
   for (let combination of WINNING_COMBINATIONS){
@@ -48,7 +48,7 @@ function derriveWinner (gameBoard){
     const thirdSquareSymbol = gameBoard[combination[2].row][combination[2].column];
 
     if(firstSquareSymbol && firstSquareSymbol === secondSquareSymbol && firstSquareSymbol === thirdSquareSymbol){
-      winner = firstSquareSymbol;
+      winner = player[firstSquareSymbol];
     }
   }
   return winner;
@@ -61,7 +61,7 @@ function App() {
 
   const activePlayer = derriveActivePlayer(gameTurns);
   const gameBoard = derriveGameBoard(gameTurns);
-  const winner = derriveWinner(gameBoard);
+  const winner = derriveWinner(gameBoard, players);
   const isDraw = gameTurns.length === 9 && !winner;
 
     function handleSquareClick(rowIndex, colIndex){
@@ -77,6 +77,15 @@ function App() {
       setGameTurns([])
     }
 
+    function handlePlayerNameChange(symbol, newName) {
+      setPlayers(prevPlayers => {
+        return {
+          ...prevPlayers,
+          [symbol]: newName
+        }
+      })
+    }
+
     
 
   return (
@@ -88,12 +97,13 @@ function App() {
             name= {PLAYERS.X}
             symbol= 'X'
             isActive={activePlayer === 'X'}
-
+            onChangeName={handlePlayerNameChange}
           />
           <Player 
             name= {PLAYERS.O}
             symbol = 'O'
             isActive={activePlayer === 'O'}
+            onChangeName={handlePlayerNameChange}
           />
         </ol>
         {(winner || isDraw) &&  <GameOver winner={winner} onRematch={handleRematch}/>}
