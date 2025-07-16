@@ -3,13 +3,8 @@ import {useState} from 'react';
 export default function Player({name, symbol, isActive, onChangeName}){
     const [playerName, setPlayerName] = useState(name)
     const [isEditing, setIsEditing] = useState(false);
-
-<<<<<<< HEAD
+// function that will handle name change editing button
     function handleClick(){
-=======
-    //function that will handle name change
-    function handleChange (){
->>>>>>> 2d45ee0 (adding comments)
         setIsEditing(isEditing => !isEditing);
 
         if(isEditing){
