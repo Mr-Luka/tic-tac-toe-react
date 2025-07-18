@@ -11,7 +11,7 @@ export default function Player({name, symbol, isActive, onChangeName}){
             onChangeName(symbol, playerName);
         }
     }
-
+// function that will capture inputed name
     function handleChange(e){
         setPlayerName(e.target.value)
     }
