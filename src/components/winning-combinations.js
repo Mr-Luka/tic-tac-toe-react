@@ -1,3 +1,5 @@
+// winning combinations for the x and O
+
 export const WINNING_COMBINATIONS = [
   [
     { row: 0, column: 0 },
