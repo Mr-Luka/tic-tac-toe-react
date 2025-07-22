@@ -15,7 +15,7 @@ export default function Player({name, symbol, isActive, onChangeName}){
     function handleChange(e){
         setPlayerName(e.target.value)
     }
-
+// once edit name is clicked, the span changes into input
     let editableName = <span className="player-name">{playerName}</span>
     if(isEditing){
         editableName = <input type='text' required  value={playerName} onChange={handleChange}/>
