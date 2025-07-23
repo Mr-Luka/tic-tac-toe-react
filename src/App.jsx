@@ -7,7 +7,7 @@ import Log from './components/Log.jsx';
 import {WINNING_COMBINATIONS} from './components/winning-combinations.js';
 import GameOver from './components/GameOver.jsx';
 
-
+// constant of the tic tac toe board
 const INITIAL_GAME_BOARD = [
     [null, null, null],
     [null, null, null],
