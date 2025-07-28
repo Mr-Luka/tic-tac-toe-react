@@ -19,6 +19,7 @@ const PLAYERS = {
   'O': 'Player 2'
 }
 
+// function that will derive game board
 function derriveGameBoard(gameTurns){
   let gameBoard = [...INITIAL_GAME_BOARD.map(array=> [...array])];
 
