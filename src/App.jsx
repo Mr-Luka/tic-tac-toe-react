@@ -31,7 +31,7 @@ function derriveGameBoard(gameTurns){
     return gameBoard;
 }
 
-
+// function that will derrive the player to be either X or O
 function derriveActivePlayer(gameTurns){
   let activePlayer = 'X';
   if(gameTurns.length > 0 && gameTurns[0].player === 'X'){
