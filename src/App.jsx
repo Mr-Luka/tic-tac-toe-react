@@ -39,7 +39,7 @@ function derriveActivePlayer(gameTurns){
   }
   return activePlayer;
 }
-
+// function that will show the winner
 function derriveWinner (gameBoard, player){
   let winner;
 
