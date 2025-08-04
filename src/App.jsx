@@ -64,7 +64,7 @@ function App() {
   const gameBoard = derriveGameBoard(gameTurns);
   const winner = derriveWinner(gameBoard, players);
   const isDraw = gameTurns.length === 9 && !winner;
-  
+
 // function that will handle the square click
     function handleSquareClick(rowIndex, colIndex){
 
@@ -74,7 +74,7 @@ function App() {
           return updatedTurn
         })
     }
-
+// rematch button to start over
     function handleRematch(){
       setGameTurns([])
     }
